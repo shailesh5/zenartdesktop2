@@ -1,0 +1,67 @@
+List<Interval> sortedIntervals = intervalList.stream().sorted((i1 ,i2)->i1.start-i2.start).collect(Collectors.toList());
+        System.out.println(sortedIntervals.toString());
+        int maxInterval = 1;
+        int minInterval = 1;
+        for(int i = 0; i< sortedIntervals.size(); i++){
+            if(sortedIntervals.get(i).start <= minInterval &&  sortedIntervals.get(i).end >= maxInterval){
+                minInterval = sortedIntervals.get(i).start;
+                maxInterval = sortedIntervals.get(i).end;             
+            }
+        }
+        
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+
+class Interval{
+    int start;
+    int end;
+    public String toString(){
+        return "Start : "+start+"Ënd : "+end;
+    }
+}
+
+class Result {
+
+    /*
+     * Complete the 'fountainActivation' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY locations as parameter.
+     */
+
+    public static int fountainActivation(List<Integer> locations) {
+    // Write your code here
+        int minNoOfFountain = 0;
+        int location = 0;
+        int start =0;
+        int end = 0;
+        ArrayList<Interval> intervalList = new ArrayList<Interval>();
+        for(int i =0; i< locations.size(); i++){
+            Interval interval = new Interval();
+            location = i+1;
+            start = (location - locations.get(i)) > 1 ? (location - locations.get(i)) : 1; 
+            end = (location + locations.get(i)) < locations.size() ? (location + locations.get(i)) : locations.size();
+            interval.start = start;
+            interval.end = end;
+            intervalList.add(interval);
+        }
+        System.out.println(intervalList.toString());
+        
+        List<Interval> sortedIntervals = intervalList.stream().sorted((i1 ,i2)).collect(Collectors.toList());
+        return maxInterval.size();
+    }
+
+}
+public class Solution {

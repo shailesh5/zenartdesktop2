@@ -1,0 +1,48 @@
+trading platform
+ordering platform
+social media
+messaging app
+media & entertainment OTT
+content management system
+
+Spring Boot 2.5,  Spring Framework 5, Java 8, Maven 3.5, Tomcat 8, Servlet 3.1
+
+path which gives maximum value in matrix
+How tree & its balancing works in HashMap
+
+
+   public static void commonSubstring(List<String> a, List<String> b) {
+    // Write your code here
+        for(int i = 0; i < a.size(); i++){
+            
+            char[] aArr = a.get(i).toCharArray();
+            char[] bArr = b.get(i).toCharArray();
+            Arrays.sort(aArr);
+            Arrays.sort(bArr);
+                       
+            boolean flag = false;
+            int p=0,q=0;
+            
+            while(p < aArr.length && q < bArr.length){
+                if(aArr[p] < bArr[q]){
+                    p++;
+                }else if(aArr[p] > bArr[q]){
+                    q++;
+                }else{
+                    flag = true;
+                    break;
+                }
+                
+            }
+            
+            if(flag){
+                System.out.println("YES");
+            }else{
+                System.out.println("NO"); 
+            }
+        }
+
+    }
+
+}
+
